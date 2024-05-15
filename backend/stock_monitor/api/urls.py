@@ -1,8 +1,10 @@
 from django.urls import path
-from .views import WatchlistView
+from . import views
 
 urlpatterns = [
-    # path('register/', RegisterView.as_view(), name='register'),
-    path('watchlist/', WatchlistView.as_view(), name='watchlist'),
-    # path('stock/<str:symbol>/', StockDataView.as_view(), name='stock-data'),
+    path('watchlist/', views.WatchlistView.as_view(), name='watchlist'),
+    path('register/', views.RegisterView.as_view(), name='register'),
+    path('token/', views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh/', views.TokenRefreshView.as_view(), name='token_refresh'),
+    path('stock/<str:symbol>/', views.StockDetailView.as_view(), name='stock_detail'),
 ]
